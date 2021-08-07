@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CSS Grid Practice 3</title>
+    <!-- <link rel="stylesheet" href="style.css" /> -->
+    <style>
+      * {
+        box-sizing: border-box;
+        border-radius: 5px;
+      }
+      .container {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-rows: 10vh 2fr 20vh;
+        background-color: rgb(134, 145, 156);
+        grid-template-areas:
+          "header header header header"
+          "aside1 main main aside2"
+          "footer footer footer footer";
+        grid-gap: 10px;
+        height: 60vh;
+        width: 80vw;
+        margin-right: auto;
+        margin-left: auto;
+      }
+      .item {
+        background-color: rgb(81, 79, 212);
+      }
+      header {
+        grid-area: header;
+      }
+      .aside1 {
+        grid-area: aside1;
+      }
+      main {
+        grid-area: main;
+      }
+      footer {
+        grid-area: footer;
+      }
+      .aside2 {
+        grid-area: aside2;
+      }
+      @media screen and (max-width: 650px) {
+        .container {
+          grid-template-columns: 1fr;
+          grid-template-rows: 1fr 2fr 3fr 2fr 1fr;
+          grid-template-areas:
+            "header"
+            "aside1"
+            "main"
+            "aside2"
+            "footer";
+          width: 70vw;
+        }
+      }
+      @media screen and (min-width: 651px) and (max-width: 960px) {
+        .container {
+            grid-template-columns: repeat(4, 1fr);
+        grid-template-rows: 10vh 2fr 15vh 10vh;
+          grid-template-areas:
+          "header header header header"
+          " aside1 main main main"
+          "aside2 aside2 aside2 aside2"
+          "footer footer footer footer";
+
+      }
+    </style>
+  </head>
+  <body class="container">
+    <header class="item">Header</header>
+    <aside class="aside1 item">Sidebar</aside>
+    <main class="item">Content</main>
+    <aside class="aside2 item">Sidebar 2</aside>
+    <footer class="item">Footer</footer>
+  </body>
+</html>
